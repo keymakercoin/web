@@ -1,0 +1,108 @@
+.cryptoslots {
+  width: 626px;
+  background-color: #333;
+  padding: 1.5rem 2.5rem;
+  box-sizing: border-box;
+  margin: auto;
+}
+
+.cryptoslots .window {
+  position: relative;
+  overflow: hidden;
+  height: 325px;
+  padding: 0 3px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.cryptoslots .left-arrow {
+  border-top: 0.5rem solid transparent;
+  border-left: 1rem solid white;
+  border-bottom: 0.5rem solid transparent;
+  position: relative;
+  left: -1.2rem;
+  top: 8.5rem;
+}
+
+.cryptoslots .right-arrow {
+  border-top: 0.5rem solid transparent;
+  border-right: 1rem solid white;
+  border-bottom: 0.5rem solid transparent;
+  position: relative;
+  right: -1.2rem;
+  top: -8.5rem;
+}
+
+.cryptoslots .outer-col {
+  width: 100px;
+  float: left;
+  margin: 0 2px;
+  background-color: #eee;
+}
+.cryptoslots .col {
+  padding: 10px;
+  will-change: true;
+  line-height: normal;
+  font-size: 1rem;
+}
+
+.cryptoslots .coin {
+  width: 80px;
+  height: 100px;
+}
+
+.cryptoslots.start_spinning .outer-col:nth-of-type(1) .col {
+  animation-delay: 0s;
+}
+.cryptoslots.stop_spinning .outer-col:nth-of-type(1) .col {
+  animation-duration: 3s;
+}
+
+.cryptoslots.start_spinning .outer-col:nth-of-type(2) .col {
+  animation-delay: 0.2s;
+}
+.cryptoslots.stop_spinning .outer-col:nth-of-type(2) .col {
+  animation-duration: 3.2s;
+}
+
+.cryptoslots.start_spinning .outer-col:nth-of-type(3) .col {
+  animation-delay: 0.4s;
+}
+.cryptoslots.stop_spinning .outer-col:nth-of-type(3) .col {
+  animation-duration: 3.4s;
+}
+
+.cryptoslots.start_spinning .outer-col:nth-of-type(4) .col {
+  animation-delay: 0.6s;
+}
+.cryptoslots.stop_spinning .outer-col:nth-of-type(4) .col {
+  animation-duration: 3.6s;
+}
+
+.cryptoslots.start_spinning .outer-col:nth-of-type(5) .col {
+  animation-delay: 0.8s;
+}
+.cryptoslots.stop_spinning .outer-col:nth-of-type(5) .col {
+  animation-duration: 3.8s;
+}
+
+.cryptoslots.start_spinning .col {
+  animation: scroll 2s cubic-bezier(0.5, 0, 0.5, 0) 1;
+}
+
+.cryptoslots.spinning .col {
+  animation: scroll 2s linear infinite;
+  animation-delay: 3s;
+}
+
+.cryptoslots.stop_spinning .col {
+  animation: scroll 3s cubic-bezier(0.5, 1, 0.5, 1) 1;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, calc(-100% + 332px), 0);
+  }
+}

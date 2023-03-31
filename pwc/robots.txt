@@ -1,0 +1,23 @@
+User-Agent: *
+Crawl-delay: 5
+Disallow: 
+Disallow: /css
+Disallow: /img
+Disallow: /js
+Disallow: /banano.html
+Disallow: /bitcoin.html
+Disallow: /bitcoincash.html
+Disallow: /bitcoingold.html
+Disallow: /CNAME
+Disallow: /dash.html
+Disallow: /digibyte.html
+Disallow: /dogecoin.html
+Disallow: /ethereum.html
+Disallow: /litecoin.html
+Disallow: /monacoin.html
+Disallow: /monero.html
+Disallow: /qtum.html
+Disallow: /reddcoin.html
+Disallow: /ripple.html
+Disallow: /stellar.html
+Disallow: /zcash.html

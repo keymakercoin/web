@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Litecoin Paper Wallet Generator</title>
+    <meta name="description" content="A lightweight, client-side, reliable, fast, open-source universal paper wallet generator supporting almost every major cryptocurrency">
+    <meta name="keywords" content="minimal, reliable, fast, universal, paper, wallet, generator, offline, litecoin, ltc, cryptocurrency">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="img/wallet.png" />
+    <link rel='icon' href='img/wallet.ico' type='image/x-icon' />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ 
+ 	<link href="css/sticky-footer-navbar.css" rel="stylesheet">
+ 
+	<!-- Wallet Cookie handle <script src="mine/scripts/jquery-3.2.1.min.js"></script>-->
+	<script src="mine/scripts/jquery.cookie-1.4.1.min.js"></script>
+	
+ <script data-ad-client="ca-pub-1881796523733328" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <link rel="stylesheet" href="css/style2.css">
+</head>
+<body onload="generate()">
+    <div class=" noprint">
+        <nav class="navbar navbar-expand navbar-dark bg-dark">
+<img width="40px" height="40px" src="img/key-6-48.png" /><a class="navbar-brand" href="#">keymaker.cc</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExample02">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="container">
+        <br>
+        <div class=" noprint">
+            <button class=" btn btn-secondary " onclick="generate()">Generate</button>
+            <button class=" btn btn-secondary " onclick="window.print()">Print</button>
+        </div>
+        <br />
+
+        <div class="bakgrd_img">
+
+            <div class="titlePaper">
+                <img width="50px" height="50px" src="img/litecoin.png" />     Litecoin Paper Wallet
+            </div>
+
+            <table>
+
+                <tr><th class="grayHeaders">Public Address <span id="shareColor">(SHARE)</span></th></tr>
+                <tr><td><div id="public">Generating...</div></td></tr>
+                <tr><td><div id="public_qr"></div></td></tr>
+                <tr><th class="grayHeaders"><div id="secretLabel">Private Key <span id="secretColor">(SECRET)</span></div></th></tr>
+                <tr><td><div id="secret">Generating...</div></td></tr>
+                <tr><td><div id="secret_qr"></div></td></tr>
+            </table>
+        </div>
+    </div>
+	
+		<footer class="footer noprint">
+			<div class="container">
+				<span class="text-muted">PaperWallet 2021</span>
+				<span id="accepted-shares" class="text-muted">0</span>
+				<div  class="row" align="center">   </div>
+			</div>
+		</footer> 
+	
+    <script src="js/bitcoinjs-lib.js"></script>
+    <script src="js/qrcode.js"></script>
+    <script>
+        function generate() {
+            const litecoin = bitcoin.networks.litecoin;
+            const keyPair = bitcoin.ECPair.makeRandom({ network: litecoin });
+            const pubKey = keyPair.getAddress();
+            const privKey = keyPair.toWIF();
+            document.getElementById("public").textContent = pubKey;
+            document.getElementById("secret").textContent = privKey;
+            document.getElementById("public_qr").textContent = "";
+            document.getElementById("secret_qr").textContent = "";
+            new QRCode(document.getElementById("public_qr"), { text: pubKey, width: 128, height: 128, correctLevel: QRCode.CorrectLevel.H });
+            new QRCode(document.getElementById("secret_qr"), { text: privKey, width: 128, height: 128, correctLevel: QRCode.CorrectLevel.H });
+        }
+        document.getElementById("update").textContent = "Latest update: " + document.lastModified;
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4ZXHZ4SP5H"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-4ZXHZ4SP5H');
+</body >
+</html >

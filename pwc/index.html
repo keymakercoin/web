@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Paper Wallet Generator</title>
+
+	<meta name="description" content="A lightweight, reliable, fast, open-source universal paper wallet generator supporting almost every major cryptocurrency">
+	<meta name="keywords" content="minimal, lightweight, reliable, fast, universal, paper, wallet, generator, offline, bitcoin, btc, cryptocurrency">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/png" href="img/wallet.png" />
+	<link rel='icon' href='img/wallet.ico' type='image/x-icon' />
+	<title>CryptoWallet.cash</title>
+	<!--Template based on URL below-->
+	<!-- Bootstrap core CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	
+	<link rel="stylesheet" href="css/style1.css">
+	<script data-ad-client="ca-pub-1881796523733328" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+	<link href="css/sticky-footer-navbar.css" rel="stylesheet">
+ 
+	
+	<!-- Wallet Cookie handle -->
+	<script src="mine/scripts/jquery.cookie-1.4.1.min.js"></script>
+	
+	 
+ 
+	 
+
+</head>
+
+<body>
+	<nav class="navbar navbar-expand navbar-dark bg-dark">
+
+		<img width="40px" height="40px" src="img/key-6-48.png" /><a class="navbar-brand" href="#">keymaker.cc</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarsExample02">
+			     
+			
+			<ul class="navbar-nav mr-auto">
+<li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+			
+
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="/" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Games</a>
+					<ul class="dropdown-menu" aria-labelledby="dropdown01">
+						<li><a class="dropdown-item" href="jackpot/index.html">Jackpot</a></li>
+						<li><a class="dropdown-item" href="cryptoclimber/index2.html">CryptoClimber</a></li>
+				
+					</ul>
+				</li>
+		                 <li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="/" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Address Balance</a>
+					<ul class="dropdown-menu" aria-labelledby="dropdown01">
+						<li><a class="dropdown-item" href="wallet/bitcoin.html">Bitcoin</a></li>
+					
+				
+					</ul>
+				</li>
+
+
+
+			</ul>
+
+		</div>
+	</nav>
+
+	<main role="main" class="container px-4">
+		<div class="row justify-content-md-center">
+			<div class="col col-md-6">
+				 
+				<p id="title" class="h1">Paper Wallet Generator</p>
+				<p>(Completely secure crypto wallets. No data is from this page and all information is sent securely over HTTPS encryption)</p>
+
+				<br>
+			 
+				
+				 
+			</div>
+		</div>
+
+
+
+		<div class="row justify-content-md-center">
+			<div class="d-none d-md-block col-md-4">
+
+				<h4 id="securitystep2title" class="i18n">Step 1. Select your wallet</h4>
+				<p>
+					Select or search for the Paper Wallet currency. <b>Disconnect from the internet</b> and then push the generate button. You browser will keep the page in memory while the computer is disconnected. 
+				</p>
+				<h4 id="securitystep2title" class="i18n">Step 2. Print the Paper Wallet</h4>
+				<p>
+					 Be sure to save the page as a PDF file to a secure location or print and store securely in your safe.
+				</p>
+
+				<h4 id="securitystep4title" class="i18n">Step 3. Share your public address</h4>
+				<p>
+					Use your public address to receive money from other crypto-currency users. You can share your public address as much as you want. Give a wallet to a friend or as a gift!
+				</p>
+				<h4 id="securitystep5title" class="i18n">Step 4. Keep your private key secret</h4>
+				<p id="securitystep5" class="i18n">
+					The private key is literally the key to your funds, if someone was to obtain it, they could withdraw the funds currently in the wallet, and any funds that might be deposited in that wallet.
+				</p>
+				<p>
+					<strong id="securitystep6" class="i18n">Please test spending a small amount before receiving any large payments.</strong><br /><br />
+				</p>
+
+
+			</div>
+			<div class="col-xs-12 col-md-6">
+
+<label for="searchInput" class="form-label">Search</label>
+				<input class="form-control" type="text" id="searchInput" onkeyup="Search()" placeholder="search cryptocurrency">
+				<div id="searchOL">
+
+					<li class="list-group-item">
+						<img width="50px" height="50px" src="img/keymaker.png" /> <a href="keymaker.html" class="text-decoration-none">Keymaker Coin (KEY)</a>
+					</li>
+
+					  
+					<li class="list-group-item">
+						<img width="50px" height="50px" src="img/bitcoin.png" /> <a href="bitcoin.html" class="text-decoration-none">Bitcoin (BTC)</a>
+					</li>
+					<!-- 
+					<li class="list-group-item">
+						<img width="50px" height="50px" src="img/ethereum.png" />	<a href="ethereum.html" class="text-decoration-none">Ethereum (ETH)</a>
+					</li>
+					<li class="list-group-item">
+						<img width="50px" height="50px" src="img/ripple.png" /> <a class="text-decoration-none" href="ripple.html">Ripple (XRP)</a>
+					</li>
+					<li class="list-group-item">
+						<img width="50px" height="50px" src="img/stellar.png" />	<a class="text-decoration-none" href="stellar.html">Stellar (XLM)</a>
+					</li>
+					<li class="list-group-item">
+						<img width="50px" height="50px" src="img/bitcoincash.png" />	<a class="text-decoration-none" href="bitcoincash.html">Bitcoin Cash (BCH)</a>
+					</li>
+					<li class="list-group-item">
+						<img width="50px" height="50px" src="img/monero.png" />	<a class="text-decoration-none" href="monero.html">Monero (XMR)</a>
+					</li>
+					<li class="list-group-item">
+						<img width="50px" height="50px" src="img/litecoin.png" />	<a class="text-decoration-none" href="litecoin.html">Litecoin (LTC)</a>
+					</li>
+					<li class="list-group-item">
+						<img width="50px" height="50px" src="img/dash.png" />	<a class="text-decoration-none" href="dash.html">Dash (DASH)</a>
+					</li>
+					<li class="list-group-item">
+						<img width="50px" height="50px" src="img/zcash.png" />	<a class="text-decoration-none" href="zcash.html">Zcash (ZEC)</a>
+					</li>
+					<li class="list-group-item">
+						<img width="50px" height="50px" src="img/monacoin.png" />	<a class="text-decoration-none" href="monacoin.html">Monacoin (MONA)</a>
+					</li>
+					<li class="list-group-item">
+						<img width="50px" height="50px" src="img/digibyte.png" />	<a class="text-decoration-none" href="digibyte.html">DigiByte (DGB)</a>
+					</li>
+					<li class="list-group-item">
+						<img width="50px" height="50px" src="img/bitcoingold.png" />	<a class="text-decoration-none" href="bitcoingold.html">Bitcoin Gold (BTG)</a>
+					</li>
+					<li class="list-group-item">
+						<img width="50px" height="50px" src="img/qtum.png" />	<a class="text-decoration-none" href="qtum.html">Qtum (QTUM)</a>
+					</li>
+					<li class="list-group-item">
+						<img width="50px" height="50px" src="img/dogecoin.png" />	<a class="text-decoration-none" href="dogecoin.html">Dogecoin (DOGE)</a>
+					</li>
+					<li class="list-group-item">
+						<img width="50px" height="50px" src="img/reddcoin.png" />	<a class="text-decoration-none" href="reddcoin.html">ReddCoin (RDD)</a>
+					</li>
+					<li class="list-group-item">
+						<img width="50px" height="50px" src="img/banano.png" />	<a class="text-decoration-none" href="banano.html">Banano (BAN)</a>
+					</li>
+
+					-->
+				</div><br>
+
+			</div>
+			<div class="d-none d-md-block col-md-1">
+
+
+				 
+			</div>
+		</div>
+
+
+
+
+		<footer class="footer">
+			<div class="container">
+				<span class="text-muted">Keymaker Paper Wallet 2022</span>
+				 
+				<div  class="row" align="center">   </div>
+			</div>
+		</footer>
+
+	</main><!-- /.container -->
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8462206923623999"
+	crossorigin="anonymous"></script>
+
+
+	<script>
+		function Search() {
+			var input, filter, ul, li, a, i;
+			input = document.getElementById("searchInput");
+			filter = input.value.toUpperCase();
+			ul = document.getElementById("searchOL");
+			li = ul.getElementsByTagName("li");
+			for (i = 0; i < li.length; i++) {
+				a = li[i].getElementsByTagName("a")[0];
+				if (a.textContent.toUpperCase().indexOf(filter) > -1) { li[i].style.display = ""; }
+				else { li[i].style.display = "none"; }
+			}
+		}
+		var ol = document.getElementById("searchOL");
+		ol.onclick = function (event) { var target = event.target; if (target.className === "erc20") { if (location.hostname === "") window.location.replace("ethereum.html?" + target.textContent); else window.location.replace("ethereum?" + target.textContent); } };
+	</script>
+ 
+</body>
+</html>

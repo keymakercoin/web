@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="description" content="Check balance of multiple bitcoin addresses">
+	<link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+	<title>EasyBalance : Check balance of multiple bitcoin addresses</title>
+
+	<!-- Bootstrap core CSS -->
+	  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   
+	<link rel="stylesheet" href="bootswatch.min.css">
+
+	<!-- Custom styles for this template -->
+	<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/starter-template/">
+
+	<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+	<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+	<script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+
+
+	<style>
+		body {
+			padding-top: 0px;
+		}
+	</style>
+</head>
+
+  <body>
+	<nav class="navbar navbar-expand navbar-dark bg-dark">
+
+		<img width="40px" height="40px" src="../img/key-6-48.png" /><a class="navbar-brand" href="#">Keymaker.cc</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarsExample02">
+			     
+			
+			<ul class="navbar-nav mr-auto">
+<li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+			
+
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="/" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Games</a>
+					<ul class="dropdown-menu" aria-labelledby="dropdown01">
+						<li><a class="dropdown-item" href="jackpot/index.html">Jackpot</a></li>
+						<li><a class="dropdown-item" href="cryptoclimber/index2.html">CryptoClimber</a></li>
+				
+					</ul>
+				</li>
+		                 <li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="/" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Address Balance</a>
+					<ul class="dropdown-menu" aria-labelledby="dropdown01">
+						<li><a class="dropdown-item" href="wallet/bitcoin.html">Bitcoin</a></li>
+						<li><a class="dropdown-item" href="">Litecoin</a></li>
+				
+					</ul>
+				</li>
+
+
+
+			</ul>
+
+		</div>
+	</nav>
+
+
+
+    <div class="container">
+	
+	<div class="page-header" id="">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+            <h1>Address Balance</h1>
+            <p class="lead">Check balance of multiple addresses</p>
+          </div>
+         </div>
+      </div>
+
+      <h4 class="inputelements">Please enter bitcoin addresses</h4><span class="inputelements">(One address per line)</span>
+	  <textarea class="form-control inputelements" rows="12" id="addresslist"></textarea><br/>
+
+<div class="checkbox inputelements"  >
+                        <label>
+                          <input type="checkbox" id="advancedoptions"> Advanced
+                        </label>
+                      </div>
+<div id="delayoption" style="display:none;" class="inputelements">Delay (seconds) <select  id="delayselect">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select></div>
+<div class="text-center">
+<input type="submit" class="inputelements btn btn-success" value="Get Balance" id="getbalance"></div>
+<div class="text-danger text-center" id="error"></div>
+<h4 class="outputelements" style="display:none;">
+Balance for entered bitcoin addresses<span id="loading"> (loading...)</span>
+</h4>
+<div id="output" class="outputelements" style="display:none;"></div>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+	<script src="bootswatch.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+
+
+<script>
+var checkrequired=0;
+var checkdone=0;
+
+$("#advancedoptions").change(function(){
+$("#delayoption").toggle();
+});
+$("#getbalance").click(function(){
+$("#error").html("");
+var addresslist=$("#addresslist").val();
+var addresses=addresslist.split("\n");
+if(addresses.length==1 && addresses[0]=="")
+	{
+	$("#error").html("Please enter atleast one bitcoin address");
+	return;
+	}
+
+
+
+var i;
+checkrequired=addresses.length;
+var delay=0;
+if($("#advancedoptions").is(":checked"))
+{
+delay=$("#delayselect").val();
+}
+$(".inputelements").hide();
+$(".outputelements").show();
+for (i = 0; i < addresses.length; i++) {
+var address=addresses[i];
+var url="https://blockchain.info/q/addressbalance/"+address;
+    /*
+	if(delay>0) {
+		setTimeout(function(){
+			getbalance(0,url,address);
+		}, delay*1000*i);
+	*/	
+	var turl=url;var ti=i;var taddress=address;
+	var tdelay=delay;
+	if(delay>0) {
+	setTimeout(function(s,t,u) {  
+                 return function() { getbalance(s,t,u) } }(0,turl,taddress),tdelay*1000*ti);
+	
+	
+		
+		
+	}
+	else
+	{
+	getbalance(0,url,addresses[i]);
+	}
+    
+		
+	
+
+} 
+
+function getbalance(count,url,address)
+{
+var jqxhr = $.get( url, function(data) {
+	var displaydata=data;
+	if(count==0)
+	{
+	displaydata=data/100000000;
+	}
+	if(count==1)
+	{
+	displaydata=data.data.balance;
+	}
+	if(count==2)
+	{
+	displaydata=data.data.balance;
+	}
+	  $("#output").html($("#output").html()+address+" = "+displaydata+" BTC<br/>");
+	})
+	  .fail(function() {
+		
+		if(count==0)
+		{
+		checkrequired++;
+		var url1="http://btc.blockr.io/api/v1/address/balance/"+address;
+		getbalance(1,url1,address);
+		}
+		if(count==1)
+		{
+		checkrequired++;
+		var url2="https://api.biteasy.com/blockchain/v1/addresses/"+address;
+		getbalance(2,url2,address);
+		}
+		if(count==2)
+		{
+		$("#output").html($("#output").html()+address+" = "+" Error<br/>");
+		}
+		
+	  })
+	  .always(function() {
+	 
+	  checkdone++;
+	  if(checkdone==checkrequired)
+		{
+		//alert( "finished" );
+		$("#loading").hide();
+		}
+		 
+  });
+}		 
+
+
+});
+</script>
+<br/>
+<br/>
+<br/>
+ 
+
+</body>
+</html>

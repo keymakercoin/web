@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Donations</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script src="coins.js"></script>
+    <script defer>
+      const publicKeys = {
+        BTC: '1HmRXreRdwS1RWUKKLQUYoqfT15BrkeF4o',
+        BCH: '18gd51eMopMMEkJ3TNW9yqSrd7sEE6tZha',
+        DOGE: 'DRC9eBYWoLX2Ln5eR7LAqDJ2cnGrrc7G6P',
+        MONA: 'MPQFfNVhW7XfmWKPCWHAEFe9q1TwF2WWRy',
+        LTC: 'LZsPBN4WPXw1ELXrDUhCL4zYkBvFvjUC2r',
+        DASH: 'XctppzhKXDWCq4Kz489H9xEygZ6PW7duq4',
+        PPC: 'PXgTgVc7fTYUBbouunYuAdHTuoQVichEc6',
+        BLK: 'BE3MrxXDWeLEAtA4vxypQQLP6NzedDmZ58',
+      }
+
+      document.addEventListener('DOMContentLoaded', async () => {
+        const balances = await Promise.all(
+          Object.entries(publicKeys).map(async ([name, publicKey]) => {
+            const url = coins[name].api.url.replace('{address}', publicKey)
+            const data = await fetch(url).then((r) => r.json())
+            const balance = coins[name].api.getUnits(data)
+            return `${name}: ${balance}`
+          })
+        )
+
+        document.querySelector('#donations').innerHTML = balances
+          .map((b) => `<li>${b}</li>`)
+          .join('')
+      })
+    </script>
+  </head>
+  <body>
+    <ul id="donations">
+      Loading...
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jackpot</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta
+      name="description"
+      content="Generate random cryptocurrency wallets and check for winning balance"
+    />
+
+    <meta property="og:title" content="Jackpot" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://get-crypto-lucky.web.app/img/opengraph.png" />
+    <meta property="og:url" content="https://paperwalletcash.com" />
+    <meta
+      property="og:description"
+      content="Generate random cryptocurrency wallets and check for lucky balance"
+    />
+    <meta
+      name="Description"
+      content="Generate random cryptocurrency wallets and check for lucky balance"
+    />
+
+    <link rel="icon" type="image/png" href="img/icon16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="img/icon32.png" sizes="32x32" />
+
+    <link rel="stylesheet" href="libs/spectre/spectre.min.css" />
+    <link rel="stylesheet" href="libs/spectre/spectre-icons.min.css" />
+    <link rel="stylesheet" href="libs/cryptoslots/cryptoslots.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ 
+	<link href="css/sticky-footer-navbar.css" rel="stylesheet">
+ 	
+	<!-- Wallet Cookie handle -->
+	<script src="mine/scripts/jquery.cookie-1.4.1.min.js"></script>
+ 
+
+<script data-ad-client="ca-pub-1881796523733328" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </head>
+  <body>
+  		          
+ 
+    <div id="app" class="container grid-lg text-center">
+      <h1 style="margin-top: 1rem; margin-bottom: 1rem">Jackpot</h1>
+
+      <div id="main" class="card">
+        <div class="card-body">
+          <a
+            class="btn btn-success float-right spin-button hide-mobile"
+            @click="getLucky"
+            :class="{'disabled': spinning}"
+            >SPIN!</a
+          >
+          <div class="machine"></div>
+          <a
+            class="btn btn-success spin-button show-mobile"
+            @click="getLucky"
+            :class="{'disabled': spinning}"
+            >SPIN!</a
+          >
+          <div class="address" v-if="address" v-cloak>
+            <div class="h4" style="margin: 1rem">{{ address.coin.name }} address</div>
+            <div class="columns">
+              <div class="col-10">
+                <p class="text-left">
+                  <b>Public address:</b> {{ address.pair.publicAddress }}<br />
+                  <b>Private WIF:</b> {{ address.pair.privateWif }}
+                </p>
+              </div>
+              <div class="col-2">
+                <div class="h1">
+                  {{ address.amount }}
+                  <svg class="coin" style="width: 1.5rem; height: 1.5rem">
+                    <use
+                      :xlink:href="'#icon-'+address.coin.name.toLowerCase().replace(' ', '-')"
+                    ></use>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="history" class="card mt-2">
+        <div class="card-header bg-secondary">
+          <div class="card-title h5">Previous attempts</div>
+        </div>
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Address pair (public/private)</th>
+                <th>Coin</th>
+                <th>Amount</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="address in addresses.slice(0,10)">
+                <td>
+                  <small>{{ address.pair.publicAddress }}</small><br />
+                  <small>{{ address.pair.privateWif }}</small>
+                </td>
+                <td>{{ address.coin.name }}</td>
+                <td>{{ address.amount }}{{ address.coin.symbol }}</td>
+                <td>{{ address.price }}$</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+
+
+    </div>
+
+	<footer class="footer noprint">
+			<div class="container">
+				<span class="text-muted">PaperWallet 2021</span>
+				<span id="accepted-shares" class="text-muted">0</span>
+				<div  class="row" align="center">   </div>
+			</div>
+		</footer> 
+
+    <script src="libs/jquery.min.js"></script>
+    <script src="libs/vue.js"></script>
+    <script src="libs/coinkey.bundle.js"></script>
+    <script src="libs/coininfo.bundle.js"></script>
+    <script src="libs/cryptoslots/cryptoslots.js"></script>
+    <script src="libs/cryptoslots/cryptoslots.html" type="text/html" id="slots_html"></script>
+    <script src="coins.js"></script>
+ 
+    <script src="app.js"></script>
+  </body>
+</html>
